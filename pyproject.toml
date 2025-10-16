@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "slmgr-py"
+version = "1.0.1"
+description = "Windows Software Licensing Management Tool - Python Version"
+readme = "README.md"
+requires-python = ">=3.13"
+license = {file = "LICENSE.txt"}
+authors = [
+    {name = "tboy1337"}
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: System :: Systems Administration",
+    "Typing :: Typed",
+]
+
+[project.urls]
+Homepage = "https://github.com/tboy1337/slmgr-py"
+Repository = "https://github.com/tboy1337/slmgr-py"
+Issues = "https://github.com/tboy1337/slmgr-py/issues"
+
+[tool.black]
+line-length = 88
+target-version = ["py313"]
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  | __pycache__
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 88
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+ensure_newline_before_comments = true
+skip_glob = ["*/venv/*", "*/__pycache__/*", "*/build/*", "*/dist/*"]
+known_first_party = ["slmgr"]
+known_third_party = ["pytest", "hypothesis", "wmi", "pythoncom", "win32com", "win32api", "pywintypes"]
+sections = ["FUTURE", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
+
